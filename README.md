@@ -1,4 +1,4 @@
-# aitutiao
+# AI头条项目
 
 Multilingual README: [中文](#中文) · [English](#english) · [日本語](#日本語)
 

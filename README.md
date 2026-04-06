@@ -67,12 +67,23 @@ uvicorn main:app --reload --host 127.0.0.1 --port 8000
 | 历史记录 | `/api/history` |
 | AI 聊天 | `/api/aichat` |
 
-### 项目结构（简要）
+### 项目结构
 
 ```text
-main.py       # 入口、.env、路由与异常
-config/       # 数据库、Redis
-routes/ crud/ models/ schemas/ utils/ cache/
+aitoutiao/
+├── main.py                 # 入口：加载 .env、日志、注册路由与全局异常
+├── requirements.txt
+├── .env_example            # 环境变量模板（本地复制为 .env）
+├── database.sql            # MySQL 建表脚本（可选）
+├── LICENSE
+├── config/                 # 数据库、Redis 等连接配置
+├── routes/                 # HTTP 路由（按业务模块拆分）
+├── crud/                   # 数据访问层（与路由分离）
+├── models/                 # SQLAlchemy ORM 模型
+├── schemas/                # Pydantic 请求体 / 响应体
+├── utils/                  # 鉴权、统一响应、异常处理、密码哈希等
+├── cache/                  # Redis 等业务缓存封装
+└── docs/                   # 补充文档（如浏览器内多语言说明页）
 ```
 
 ### 许可
@@ -142,6 +153,25 @@ See **`.env_example`** for variables. `main.py` calls `load_dotenv(..., override
 | History | `/api/history` |
 | AI chat | `/api/aichat` |
 
+### Project layout
+
+```text
+aitoutiao/
+├── main.py                 # Entry: .env, logging, routers, exception handlers
+├── requirements.txt
+├── .env_example
+├── database.sql            # Optional MySQL DDL
+├── LICENSE
+├── config/                 # DB & Redis settings
+├── routes/                 # HTTP routers (by feature)
+├── crud/                   # Data access layer
+├── models/                 # SQLAlchemy models
+├── schemas/                # Pydantic request/response models
+├── utils/                  # Auth, response helpers, exceptions, password hashing
+├── cache/                  # Redis and other cache helpers
+└── docs/                   # Extra docs (e.g. multilingual HTML page)
+```
+
 ### License
 
 Licensed under the **MIT License** — see [`LICENSE`](LICENSE).
@@ -208,6 +238,25 @@ uvicorn main:app --reload --host 127.0.0.1 --port 8000
 | お気に入り | `/api/favorite` |
 | 履歴 | `/api/history` |
 | AI チャット | `/api/aichat` |
+
+### ディレクトリ構成
+
+```text
+aitoutiao/
+├── main.py                 # エントリ：.env、ログ、ルーター、例外ハンドラ
+├── requirements.txt
+├── .env_example
+├── database.sql            # MySQL DDL（任意）
+├── LICENSE
+├── config/                 # DB・Redis 設定
+├── routes/                 # HTTP ルーター（機能別）
+├── crud/                   # データアクセス層
+├── models/                 # SQLAlchemy モデル
+├── schemas/                # Pydantic リクエスト／レスポンス
+├── utils/                  # 認証、共通レスポンス、例外、パスワード等
+├── cache/                  # Redis 等のキャッシュ
+└── docs/                   # 補助ドキュメント（多言語 HTML 等）
+```
 
 ### ライセンス
 
